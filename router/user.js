@@ -5,7 +5,9 @@ const { reg_login_schema} = require('../schema/user')
 const userHander = require('../router_handler/user')
 router.post('/reguser',expressJoi(reg_login_schema), userHander.reg_User)
 router.post('/login',expressJoi(reg_login_schema), userHander.login_User)
-
-
-
+router.get('/login/userinfo/:username', userHander.getUserInfo)
+router.get('/address/:username', userHander.getAddress)
+router.get('/addr/pro', userHander.getProvince)
+router.get('/addr/city/:pro_name', userHander.getCityList)
+router.get('/addr/dis/:city_name', userHander.getDisList)
 module.exports = router

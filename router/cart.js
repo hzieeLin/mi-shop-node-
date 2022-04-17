@@ -1,0 +1,10 @@
+const express = require('express')
+const cartHander = require('../router_handler/cart')
+const router = express.Router()
+router.get('/cartlist', cartHander.getCartList)
+router.put('/goodsstate/:c_name/:c_id', cartHander.changeGoodsState)
+router.get('/checkall', cartHander.getGoodsState)
+router.get('/pricelist', cartHander.getPriceList)
+router.put("/goodsnum/:c_number/:c_id/:c_name", cartHander.changeGoodsNum)
+router.delete('/deleteGoods/:c_id/:c_name', cartHander.deleteGoodsRow)
+module.exports = router
